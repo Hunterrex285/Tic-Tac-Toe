@@ -34,12 +34,12 @@ class _TicTacToeGameState extends State<TicTacToeGame> {
   bool movePlayed = _logic.playMove(index);
 
   if (movePlayed) {
-    setState(() {}); // refresh board only if move was valid
+    setState(() {}); 
   }
 
   if (_logic.gameOver) {
     if (_logic.winner != "Draw") {
-      _triggerConfetti(); // <-- trigger confetti only if there is a winner
+      _triggerConfetti(); 
     }
     Future.delayed(const Duration(milliseconds: 1000), () {
       _showResultDialog();
@@ -161,12 +161,10 @@ class _TicTacToeGameState extends State<TicTacToeGame> {
               height: 300,
               child: Stack(
                 children: [
-                  // Background first (lowest layer)
                   SvgPicture.asset(
                     'board.svg',
                   ),
 
-                  // Then interactive overlay (highest layer)
                   GridView.builder(
                     itemCount: 9,
                     shrinkWrap: true,

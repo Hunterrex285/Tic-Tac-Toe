@@ -7,7 +7,6 @@ class GameLogic {
   int crossWins = 0;
   int draws = 0;
 
-  /// Reset board
   void resetBoard() {
     board = List.filled(9, "");
     currentPlayer = "O";
@@ -15,7 +14,6 @@ class GameLogic {
     winner = "";
   }
 
-  /// Play move
   bool playMove(int index) {
     if (gameOver || board[index] != "") return false;
 
@@ -39,17 +37,16 @@ class GameLogic {
     return true;
   }
 
-  /// Check if current player wins
   bool _checkWinner(String player) {
     List<List<int>> winPatterns = [
       [0, 1, 2],
       [3, 4, 5],
-      [6, 7, 8], // rows
+      [6, 7, 8], 
       [0, 3, 6],
       [1, 4, 7],
-      [2, 5, 8], // cols
+      [2, 5, 8], 
       [0, 4, 8],
-      [2, 4, 6], // diagonals
+      [2, 4, 6], 
     ];
 
     for (var pattern in winPatterns) {
